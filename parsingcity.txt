@@ -1,0 +1,11 @@
+  mApiManager.getSearchResult("A").enqueue(new Callback<List<City>>() {
+                   @Override
+                   public void onResponse(Call<List<City>> call, Response<List<City>> response) {
+                             List<City> cities=   response.body();
+                   }
+
+                   @Override
+                   public void onFailure(Call<List<City>> call, Throwable t) {
+
+                   }
+               });

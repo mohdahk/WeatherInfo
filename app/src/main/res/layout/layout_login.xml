@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+            <variable
+                name="loginViewModel"
+                type="com.weatherinfo.viewmodel.LoginViewModel" />
+        </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:error="@{loginViewModel.errorEmail}"
+        app:errorEnabled="true">
+
+
+    <EditText
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_email"
+            android:hint="Email"
+            android:text="@={loginViewModel.email}"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:error="@{loginViewModel.errorPassword}"
+        app:errorEnabled="true">
+
+        <EditText
+            android:layout_marginStart="@dimen/size_normal"
+            android:layout_marginEnd="@dimen/size_normal"
+            android:layout_marginTop="@dimen/size_xlarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_pwd"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:text="@={loginViewModel.password}"
+             />
+
+    </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/size_normal"
+            android:layout_marginEnd="@dimen/size_normal"
+            android:layout_marginTop="@dimen/size_xlarge"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> loginViewModel.onLoginClicked()}"
+            android:text="@string/login"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_normal"
+            />
+
+    </LinearLayout>
+
+
+</layout>

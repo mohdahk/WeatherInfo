@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_xsmall">7dp</dimen>
+    <dimen name="size_small">10dp</dimen>
+    <dimen name="size_normal">20dp</dimen>
+    <dimen name="size_large">40dp</dimen>
+    <dimen name="size_xlarge">80dp</dimen>
+    <dimen name="textsize_normal">20sp</dimen>
+</resources>
