@@ -14,7 +14,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WeatherViewModel extends BaseViewModel{
+public class WeatherViewModel extends BaseViewModel {
 
     private int mWoeid;
     public MutableLiveData<String> weatherState = new MutableLiveData<>();
@@ -28,20 +28,20 @@ public class WeatherViewModel extends BaseViewModel{
 
     }
 
-    public void getWeatherData(){
+    public void getWeatherData() {
 
         busy.setValue(true);
 
         mApiManager.getCityDetail(mWoeid).enqueue(new Callback<CityDetail>() {
             @Override
             public void onResponse(Call<CityDetail> call, Response<CityDetail> response) {
-                     CityDetail cityDetail = response.body();
-                    List<ConsolidatedWeather> consolidatedWeather = cityDetail.getConsolidatedWeather();
-                    weatherState.setValue(consolidatedWeather.get(0).getWeatherStateName());
-                    windDirection.setValue(consolidatedWeather.get(0).getWindDirectionCompass());
-                    tempMin.setValue(consolidatedWeather.get(0).getMinTemp().toString());
-                    tempMax.setValue(consolidatedWeather.get(0).getMaxTemp().toString());
-                    humidity.setValue(consolidatedWeather.get(0).getHumidity().toString());
+                CityDetail cityDetail = response.body();
+                List<ConsolidatedWeather> consolidatedWeather = cityDetail.getConsolidatedWeather();
+                weatherState.setValue(consolidatedWeather.get(0).getWeatherStateName());
+                windDirection.setValue(consolidatedWeather.get(0).getWindDirectionCompass());
+                tempMin.setValue(consolidatedWeather.get(0).getMinTemp().toString());
+                tempMax.setValue(consolidatedWeather.get(0).getMaxTemp().toString());
+                humidity.setValue(consolidatedWeather.get(0).getHumidity().toString());
                 busy.setValue(false);
             }
 
@@ -59,7 +59,6 @@ public class WeatherViewModel extends BaseViewModel{
     public void setWoeid(int mWoeid) {
         this.mWoeid = mWoeid;
     }
-
 
 
 }

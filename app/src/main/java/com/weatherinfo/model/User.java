@@ -40,7 +40,7 @@ public class User {
 
 
     public boolean isValidPassword() {
-        return  Pattern.compile(AppConstants.PASSWORD_PATTERN).matcher(getPassword()).matches();
+        return Pattern.compile(AppConstants.PASSWORD_PATTERN).matcher(getPassword()).matches();
     }
 
 }

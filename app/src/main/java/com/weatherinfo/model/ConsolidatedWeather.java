@@ -25,9 +25,11 @@ public class ConsolidatedWeather {
     public void setWeatherStateName(String weatherStateName) {
         this.weatherStateName = weatherStateName;
     }
+
     public String getWindDirectionCompass() {
         return windDirectionCompass;
     }
+
     public void setWindDirectionCompass(String windDirectionCompass) {
         this.windDirectionCompass = windDirectionCompass;
     }
@@ -47,12 +49,15 @@ public class ConsolidatedWeather {
     public void setMaxTemp(Float maxTemp) {
         this.maxTemp = maxTemp;
     }
+
     public Float getWindDirection() {
         return windDirection;
     }
+
     public void setWindDirection(Float windDirection) {
         this.windDirection = windDirection;
     }
+
     public Integer getHumidity() {
         return humidity;
     }

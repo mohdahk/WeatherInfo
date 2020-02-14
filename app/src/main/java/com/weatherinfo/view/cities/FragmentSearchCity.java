@@ -32,7 +32,7 @@ public class FragmentSearchCity extends BaseFragment implements CityListAdapter.
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        LayoutSearchcityBinding binding = DataBindingUtil.inflate(inflater,R.layout.layout_searchcity, container, false);
+        LayoutSearchcityBinding binding = DataBindingUtil.inflate(inflater, R.layout.layout_searchcity, container, false);
         binding.setLifecycleOwner(this);
         mSearchCityViewModel = ViewModelProviders.of(this).get(SearchCityViewModel.class);
         binding.setSearchCityViewModel(mSearchCityViewModel);
@@ -57,11 +57,11 @@ public class FragmentSearchCity extends BaseFragment implements CityListAdapter.
 
         mSearchCityViewModel.busy.observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(@Nullable Boolean aBoolean) {
-                if(aBoolean)
-                    baseActivity.showProgressDialog(getActivity(),getResources().getString(R.string.loading));
+            public void onChanged(@Nullable Boolean val) {
+                if (val)
+                    showProgressDialog(getActivity(), getResources().getString(R.string.loading));
                 else
-                    baseActivity.hideProgressDialog();
+                    hideProgressDialog();
             }
         });
         return view;
@@ -83,6 +83,6 @@ public class FragmentSearchCity extends BaseFragment implements CityListAdapter.
 
     @Override
     public void onItemClick(int woeid) {
-            replaceFragment(FragmentWeather.newInstance(woeid));
+        replaceFragment(FragmentWeather.newInstance(woeid));
     }
 }

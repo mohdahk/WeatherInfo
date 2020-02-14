@@ -11,13 +11,13 @@ import com.weatherinfo.service.ServiceClient;
 public class BaseViewModel extends AndroidViewModel {
 
     protected Application mApplication;
-    protected  ApiManager mApiManager;
-    public MutableLiveData<Boolean> busy= new MutableLiveData<>();
+    protected ApiManager mApiManager;
+    public MutableLiveData<Boolean> busy = new MutableLiveData<>();
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
         this.mApplication = application;
-        if(mApiManager == null){
+        if (mApiManager == null) {
             mApiManager = ServiceClient.getClient().create(ApiManager.class);
         }
     }

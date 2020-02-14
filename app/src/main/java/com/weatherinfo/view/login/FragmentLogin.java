@@ -24,7 +24,7 @@ public class FragmentLogin extends BaseFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        LayoutLoginBinding binding = DataBindingUtil.inflate(inflater,R.layout.layout_login, container, false);
+        LayoutLoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.layout_login, container, false);
         binding.setLifecycleOwner(this);
         binding.setLoginViewModel(mLoginViewModel);
         View view = binding.getRoot();
@@ -40,7 +40,7 @@ public class FragmentLogin extends BaseFragment {
             @Override
             public void onChanged(@Nullable User user) {
 
-                if(user.isEmailValid() && user.isValidPassword()){
+                if (user.isEmailValid() && user.isValidPassword()) {
                     replaceFragment(FragmentSearchCity.newInstance());
                 }
             }
@@ -52,6 +52,7 @@ public class FragmentLogin extends BaseFragment {
     public static FragmentLogin newInstance() {
         return new FragmentLogin();
     }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

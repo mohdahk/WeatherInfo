@@ -40,17 +40,17 @@ public class LoginViewModel extends BaseViewModel {
 
 
     public void onLoginClicked() {
-                User user = new User(email.getValue(), password.getValue());
-                if (!user.isEmailValid()) {
-                    errorEmail.setValue(mApplication.getResources().getString(R.string.invalidemail));
-                } else {
-                   errorEmail.setValue(null);
-                }
-                if (!user.isValidPassword())
-                    errorPassword.setValue(mApplication.getResources().getString(R.string.invalidpasswprd));
-                else {
-                    errorPassword.setValue(null);
-                }
-                userMutableLiveData.setValue(user);
+        User user = new User(email.getValue(), password.getValue());
+        if (!user.isEmailValid()) {
+            errorEmail.setValue(mApplication.getResources().getString(R.string.invalidemail));
+        } else {
+            errorEmail.setValue(null);
+        }
+        if (!user.isValidPassword())
+            errorPassword.setValue(mApplication.getResources().getString(R.string.invalidpasswprd));
+        else {
+            errorPassword.setValue(null);
+        }
+        userMutableLiveData.setValue(user);
     }
 }

@@ -15,7 +15,7 @@ import com.weatherinfo.R;
 
 public class BaseFragment extends Fragment {
     protected BaseActivity baseActivity;
-    
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

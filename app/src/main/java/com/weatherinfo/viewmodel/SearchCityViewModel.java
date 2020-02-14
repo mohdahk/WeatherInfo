@@ -18,6 +18,7 @@ public class SearchCityViewModel extends BaseViewModel {
 
     public MutableLiveData<String> searchString = new MutableLiveData<>();
     public MutableLiveData<List<City>> mCities = new MutableLiveData<>();
+
     public SearchCityViewModel(@NonNull Application application) {
         super(application);
     }
@@ -28,7 +29,7 @@ public class SearchCityViewModel extends BaseViewModel {
             @Override
             public void onResponse(Call<List<City>> call, Response<List<City>> response) {
 
-                if(response.code() == 200){
+                if (response.code() == 200) {
                     List<City> cities = response.body();
                     mCities.setValue(cities);
                     searchString.setValue("");
@@ -44,7 +45,7 @@ public class SearchCityViewModel extends BaseViewModel {
 
     }
 
-    public LiveData<List<City>> getCityList(){
-        return  mCities;
+    public LiveData<List<City>> getCityList() {
+        return mCities;
     }
 }

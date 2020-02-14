@@ -22,10 +22,11 @@ public class FragmentWeather extends BaseFragment {
 
     private WeatherViewModel mWeatherViewModel;
     private int mWoeid;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        LayoutWeatherBinding binding = DataBindingUtil.inflate(inflater,R.layout.layout_weather, container, false);
+        LayoutWeatherBinding binding = DataBindingUtil.inflate(inflater, R.layout.layout_weather, container, false);
         binding.setLifecycleOwner(this);
         mWeatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel.class);
         binding.setWeatherViewModel(mWeatherViewModel);
@@ -35,10 +36,10 @@ public class FragmentWeather extends BaseFragment {
         mWeatherViewModel.busy.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean val) {
-                if(val)
-                    baseActivity.showProgressDialog(getActivity(),getResources().getString(R.string.loading));
+                if (val)
+                    showProgressDialog(getActivity(), getResources().getString(R.string.loading));
                 else
-                    baseActivity.hideProgressDialog();
+                    hideProgressDialog();
             }
         });
 
