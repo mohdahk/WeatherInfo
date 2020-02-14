@@ -1,6 +1,5 @@
 
 package com.weatherinfo.model;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -13,8 +12,6 @@ public class CityDetail {
     private String sun_rise;
     private String sun_set;
     private String timezoneName;
-    private Parent parent;
-    private List<Source> sources = null;
     private String title;
     private String locationType;
     private Integer woeid;
@@ -59,22 +56,6 @@ public class CityDetail {
 
     public void setTimezoneName(String timezoneName) {
         this.timezoneName = timezoneName;
-    }
-
-    public Parent getParent() {
-        return parent;
-    }
-
-    public void setParent(Parent parent) {
-        this.parent = parent;
-    }
-
-    public List<Source> getSources() {
-        return sources;
-    }
-
-    public void setSources(List<Source> sources) {
-        this.sources = sources;
     }
 
     public String getTitle() {

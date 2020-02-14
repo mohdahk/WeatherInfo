@@ -1,5 +1,6 @@
 package com.weatherinfo.view.weather;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -31,6 +32,17 @@ public class FragmentWeather extends BaseFragment {
         View view = binding.getRoot();
         mWeatherViewModel.setWoeid(mWoeid);
         mWeatherViewModel.getWeatherData();
+        mWeatherViewModel.busy.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean val) {
+                if(val)
+                    baseActivity.showProgressDialog(getActivity(),getResources().getString(R.string.loading));
+                else
+                    baseActivity.hideProgressDialog();
+            }
+        });
+
+
         return view;
     }
 

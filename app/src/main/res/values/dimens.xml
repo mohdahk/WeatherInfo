@@ -2,6 +2,7 @@
 <resources>
     <dimen name="size_xsmall">7dp</dimen>
     <dimen name="size_small">10dp</dimen>
+    <dimen name="size_medium">10dp</dimen>
     <dimen name="size_normal">20dp</dimen>
     <dimen name="size_large">40dp</dimen>
     <dimen name="size_xlarge">80dp</dimen>

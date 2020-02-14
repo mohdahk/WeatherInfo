@@ -1,5 +1,7 @@
 package com.weatherinfo.view;
 
+import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,17 +14,8 @@ import android.view.WindowManager;
 import com.weatherinfo.R;
 
 public class BaseFragment extends Fragment {
-    private BaseActivity baseActivity;
-
-    public static BaseFragment newInstance() {
-        BaseFragment fragment = new BaseFragment();
-        return fragment;
-    }
-
-    public BaseFragment() {
-        // Required empty public constructor
-    }
-
+    protected BaseActivity baseActivity;
+    
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -47,4 +40,17 @@ public class BaseFragment extends Fragment {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    protected void showProgressDialog(Context context, String message) {
+        if (baseActivity != null) {
+            baseActivity.showProgressDialog(baseActivity, message);
+        }
+    }
+
+    protected void hideProgressDialog() {
+        if (baseActivity != null) {
+            baseActivity.hideProgressDialog();
+        }
+    }
+
 }

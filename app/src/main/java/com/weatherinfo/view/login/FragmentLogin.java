@@ -40,9 +40,9 @@ public class FragmentLogin extends BaseFragment {
             @Override
             public void onChanged(@Nullable User user) {
 
-                //if(user.isEmailValid() && user.isValidPassword()){
+                if(user.isEmailValid() && user.isValidPassword()){
                     replaceFragment(FragmentSearchCity.newInstance());
-                //}
+                }
             }
 
 
@@ -56,9 +56,5 @@ public class FragmentLogin extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mLoginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
-
     }
-
-
-
 }

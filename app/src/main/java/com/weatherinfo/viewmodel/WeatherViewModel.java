@@ -16,9 +16,7 @@ import retrofit2.Response;
 
 public class WeatherViewModel extends BaseViewModel{
 
-
     private int mWoeid;
-
     public MutableLiveData<String> weatherState = new MutableLiveData<>();
     public MutableLiveData<String> windDirection = new MutableLiveData<>();
     public MutableLiveData<String> tempMin = new MutableLiveData<>();
@@ -31,6 +29,9 @@ public class WeatherViewModel extends BaseViewModel{
     }
 
     public void getWeatherData(){
+
+        busy.setValue(true);
+
         mApiManager.getCityDetail(mWoeid).enqueue(new Callback<CityDetail>() {
             @Override
             public void onResponse(Call<CityDetail> call, Response<CityDetail> response) {
@@ -41,11 +42,12 @@ public class WeatherViewModel extends BaseViewModel{
                     tempMin.setValue(consolidatedWeather.get(0).getMinTemp().toString());
                     tempMax.setValue(consolidatedWeather.get(0).getMaxTemp().toString());
                     humidity.setValue(consolidatedWeather.get(0).getHumidity().toString());
+                busy.setValue(false);
             }
 
             @Override
             public void onFailure(Call<CityDetail> call, Throwable t) {
-
+                busy.setValue(false);
             }
         });
     }

@@ -7,10 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.weatherinfo.R;
 import com.weatherinfo.model.City;
-
 import java.util.ArrayList;
 import java.util.List;
 

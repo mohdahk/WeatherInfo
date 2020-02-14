@@ -23,10 +23,8 @@ public class LoginViewModel extends BaseViewModel {
 
     public MutableLiveData<String> errorPassword = new MutableLiveData<>();
     public MutableLiveData<String> errorEmail = new MutableLiveData<>();
-
     public MutableLiveData<String> email = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
-
     private MutableLiveData<User> userMutableLiveData;
 
     public LoginViewModel(@NonNull Application application) {
@@ -37,15 +35,13 @@ public class LoginViewModel extends BaseViewModel {
         if (userMutableLiveData == null) {
             userMutableLiveData = new MutableLiveData<>();
         }
-
         return userMutableLiveData;
     }
 
 
     public void onLoginClicked() {
                 User user = new User(email.getValue(), password.getValue());
-
-               /* if (!user.isEmailValid()) {
+                if (!user.isEmailValid()) {
                     errorEmail.setValue(mApplication.getResources().getString(R.string.invalidemail));
                 } else {
                    errorEmail.setValue(null);
@@ -54,7 +50,7 @@ public class LoginViewModel extends BaseViewModel {
                     errorPassword.setValue(mApplication.getResources().getString(R.string.invalidpasswprd));
                 else {
                     errorPassword.setValue(null);
-                } */
+                }
                 userMutableLiveData.setValue(user);
     }
 }
